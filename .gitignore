@@ -1,0 +1,11 @@
+node_modules
+dist
+coverage
+.DS_Store
+.env
+.env.*
+.vscode/*.log
+frontend/dist
+backend/dist
+backend/node_modules
+frontend/node_modules
