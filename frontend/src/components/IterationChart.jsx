@@ -14,15 +14,15 @@ export default function IterationChart({ iterations = [], method = 'NR' }) {
     <div className="panel overflow-hidden">
       <div className="panel-header flex items-center justify-between">
         <span>Convergence Graph</span>
-        <span className="text-xs normal-case tracking-normal text-slate-400">{method === 'GS' ? 'Gauss-Seidel' : method}</span>
+        <span className="text-xs normal-case tracking-normal text-slate-400">Gauss-Seidel</span>
       </div>
-      <div className="p-3 sm:p-4">
+      <div className="p-4">
         {values.length === 0 ? (
-          <div className="flex h-[160px] items-center justify-center rounded-xl border border-dashed border-slate-700 text-sm text-slate-400 sm:h-[180px]">
+          <div className="flex h-[180px] items-center justify-center rounded-xl border border-dashed border-slate-700 text-sm text-slate-400">
             Run a simulation to visualize convergence.
           </div>
         ) : (
-          <svg viewBox={`0 0 ${width} ${height}`} className="h-[160px] w-full rounded-xl bg-slate-950/60 sm:h-[180px]">
+          <svg viewBox={`0 0 ${width} ${height}`} className="h-[180px] w-full rounded-xl bg-slate-950/60">
             {[0.75, 0.5, 0.25, 0].map((fraction, index) => (
               <g key={index}>
                 <line x1={padding} x2={width - padding} y1={padding + fraction * (height - padding * 2)} y2={padding + fraction * (height - padding * 2)} stroke="rgba(148,163,184,0.15)" strokeDasharray="4 4" />

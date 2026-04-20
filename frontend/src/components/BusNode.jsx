@@ -28,7 +28,7 @@ export default function BusNode({ id, data }) {
       onDragOver={(event) => event.preventDefault()}
       onDrop={onDrop}
       style={{ backgroundColor: data.resultColor || undefined }}
-      className={`rounded-2xl border-2 px-3 py-2 text-xs shadow-lg transition sm:px-4 sm:py-3 sm:text-sm ${isSelected ? 'border-cyan-400 bg-cyan-500/10' : voltageOk ? 'border-emerald-500/40 bg-slate-900' : 'border-rose-400 bg-rose-950/30'}`}
+      className={`rounded-2xl border-2 px-4 py-3 text-sm shadow-lg transition ${isSelected ? 'border-cyan-400 bg-cyan-500/10' : voltageOk ? 'border-emerald-500/40 bg-slate-900' : 'border-rose-400 bg-rose-950/30'}`}
     >
       <Handle type="target" position={Position.Top} className="!h-3 !w-3 !border-2 !border-white !bg-cyan-400" />
       <div className="space-y-2">
@@ -39,11 +39,11 @@ export default function BusNode({ id, data }) {
           </div>
           <span className="chip">{id}</span>
         </div>
-        <div className="grid grid-cols-1 gap-1 text-xs text-slate-300 sm:grid-cols-2 sm:gap-2">
+        <div className="grid grid-cols-2 gap-2 text-xs text-slate-300">
           <div>V: {data.vm?.toFixed?.(3) ?? data.vm ?? 1.0} p.u.</div>
           <div>δ: {data.va?.toFixed?.(3) ?? data.va ?? 0}°</div>
         </div>
-        <div className="flex flex-wrap gap-1.5 sm:gap-2">
+        <div className="flex flex-wrap gap-2">
           {generators.map((generator) => (
             <button key={generator.id} onClick={(event) => { event.stopPropagation(); setSelectedElement({ type: 'generator', id: generator.id }); }} className="chip border-cyan-500/50 text-cyan-200">
               Gen
