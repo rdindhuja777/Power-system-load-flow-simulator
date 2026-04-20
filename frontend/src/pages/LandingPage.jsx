@@ -61,6 +61,8 @@ export default function LandingPage() {
               <div className="mt-6 border-t border-slate-700 pt-4">
                 <p className="text-sm font-semibold text-cyan-300">Indhuja R D</p>
                 <p className="text-sm text-slate-400">Register No: 312824105009</p>
+                <p className="mt-3 text-sm font-semibold text-cyan-300">C Subathra</p>
+                <p className="text-sm text-slate-400">Register No: 312824105027</p>
               </div>
             </div>
           </div>

@@ -27,6 +27,7 @@ export default function TopBar({
           <h1 className="text-2xl font-bold text-white">Power System Load Flow Simulator</h1>
           <p className="text-sm text-slate-400">Interactive load flow analysis for engineering demonstrations.</p>
           <p className="text-xs text-slate-500 mt-2">Project by Indhuja R D (Register No: 312824105009)</p>
+          <p className="text-xs text-slate-500">C Subathra (Register No: 312824105027)</p>
         </div>
         <div className="flex flex-wrap gap-2">
           <button className="btn-secondary" onClick={onUndo}>Undo</button>
