@@ -1,4 +1,4 @@
-const apiBaseUrl = (import.meta.env.VITE_API_BASE_URL || '').replace(/\/$/, '');
+const apiBaseUrl = (import.meta.env.VITE_API_BASE_URL || 'https://power-system-load-flow-simulator.onrender.com').replace(/\/$/, '');
 const simulateEndpoint = `${apiBaseUrl}/api/simulate`;
 
 function backendHint() {
