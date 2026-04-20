@@ -1,5 +1,5 @@
 import { useMemo, useCallback, useEffect } from 'react';
-import ReactFlow, { Background, ConnectionMode, Controls, ReactFlowProvider, applyEdgeChanges, applyNodeChanges, useReactFlow } from 'reactflow';
+import ReactFlow, { Background, ConnectionMode, Controls, ReactFlowProvider, applyEdgeChanges, applyNodeChanges, useNodesInitialized, useReactFlow } from 'reactflow';
 import 'reactflow/dist/style.css';
 import { useSimulationStore } from '../store/useSimulationStore.js';
 import { sampleSystems } from '../utils/sampleSystems.js';
@@ -14,9 +14,11 @@ import { simulateLoadFlow } from '../utils/api.js';
 const nodeTypes = { busNode: BusNode };
 
 function CanvasInner() {
-  const { project } = useReactFlow();
+  const { project, fitView } = useReactFlow();
+  const nodesInitialized = useNodesInitialized();
   const nodes = useSimulationStore((state) => state.nodes);
   const edges = useSimulationStore((state) => state.edges);
+  const fitViewToken = useSimulationStore((state) => state.fitViewToken);
   const setNodes = useSimulationStore((state) => state.setNodes);
   const setEdges = useSimulationStore((state) => state.setEdges);
   const addBusNode = useSimulationStore((state) => state.addBusNode);
@@ -66,6 +68,15 @@ function CanvasInner() {
     return result.voltageMagnitude >= 0.95 && result.voltageMagnitude <= 1.05 ? '#064e3b' : '#7f1d1d';
   }, [busResults]);
 
+  useEffect(() => {
+    if (!nodes.length || !nodesInitialized) return;
+    const timer = window.setTimeout(() => {
+      fitView({ padding: 0.2, duration: 0, includeHiddenNodes: false });
+    }, 0);
+
+    return () => window.clearTimeout(timer);
+  }, [edges.length, fitView, fitViewToken, nodes.length, nodesInitialized]);
+
   return (
     <div className="relative h-full rounded-2xl border border-slate-800 bg-slate-950">
       {nodes.length === 0 ? (
@@ -88,6 +99,7 @@ function CanvasInner() {
         onDragOver={(event) => event.preventDefault()}
         onNodeClick={(_event, node) => setSelectedElement({ type: 'bus', id: node.id })}
         onEdgeClick={(_event, edge) => setSelectedElement({ type: 'edge', id: edge.id })}
+        fitViewOptions={{ padding: 0.2, includeHiddenNodes: false }}
         fitView
       >
         <Background color="#334155" gap={20} />
