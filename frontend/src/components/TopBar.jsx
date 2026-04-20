@@ -23,12 +23,12 @@ export default function TopBar({
   return (
     <div className="panel mb-4">
       <div className="flex flex-col gap-4 border-b border-slate-800 p-4 lg:flex-row lg:items-center lg:justify-between">
-        <div>
+        <div className="min-w-0">
           <h1 className="text-2xl font-bold text-white">Power System Load Flow Simulator</h1>
           <p className="text-sm text-slate-400">Interactive load flow analysis for engineering demonstrations.</p>
-          <p className="text-xs text-slate-500 mt-2">Project by Indhuja R D (Register No: 312824105009) & C Subathra (Register No: 312824105027)</p>
+          <p className="mt-2 text-xs leading-5 text-slate-500 lg:whitespace-nowrap">Project by Indhuja R D (Register No: 312824105009) &amp; C Subathra (Register No: 312824105027)</p>
         </div>
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-2 lg:shrink-0">
           <button className="btn-secondary" onClick={onUndo}>Undo</button>
           <button className="btn-secondary" onClick={onRedo}>Redo</button>
           <button className="btn-secondary" onClick={onToggleDarkMode}>Toggle Dark Mode</button>
