@@ -1,10 +1,10 @@
-const apiBaseUrl = (import.meta.env.VITE_API_BASE_URL || '').replace(/\/$/, '');
-const simulateEndpoint = `${apiBaseUrl}/api/simulate`;
+const apiBaseUrl = (import.meta.env.VITE_API_BASE_URL || '').replace(/\/$/, '') || '';
+const simulateEndpoint = apiBaseUrl ? `${apiBaseUrl}/api/simulate` : '/api/simulate';
 
 function backendHint() {
   return import.meta.env.DEV
-    ? 'Backend API is unavailable. Start the backend server and try again.'
-    : 'Backend API is unavailable. GitHub Pages hosts only the frontend. Deploy the backend separately and set VITE_API_BASE_URL at build time.';
+    ? 'Backend API is unavailable. Start the backend server on http://localhost:4000 and try again.'
+    : 'Backend API is unavailable. Check your deployment or try again later.';
 }
 
 export async function simulateLoadFlow(payload) {
