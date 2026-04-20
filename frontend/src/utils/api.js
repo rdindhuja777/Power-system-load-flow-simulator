@@ -1,10 +1,10 @@
-const apiBaseUrl = (import.meta.env.VITE_API_BASE_URL || '').replace(/\/$/, '') || '';
-const simulateEndpoint = apiBaseUrl ? `${apiBaseUrl}/api/simulate` : '/api/simulate';
+const apiBaseUrl = (import.meta.env.VITE_API_BASE_URL || '').replace(/\/$/, '');
+const simulateEndpoint = `${apiBaseUrl}/api/simulate`;
 
 function backendHint() {
   return import.meta.env.DEV
     ? 'Backend API is unavailable. Start the backend server on http://localhost:4000 and try again.'
-    : 'Backend API is unavailable. Check your deployment or try again later.';
+    : 'Backend API is unavailable. Check your Render deployment or try again later.';
 }
 
 export async function simulateLoadFlow(payload) {
