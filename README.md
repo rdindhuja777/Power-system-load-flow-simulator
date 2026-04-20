@@ -32,3 +32,12 @@ A production-oriented full-stack web application for load flow analysis using th
    ```
 
 The frontend runs on Vite and the backend runs on Express.
+
+## GitHub Pages deployment note
+- GitHub Pages can host only the frontend static files.
+- The `Run Load Flow` action needs the backend API (`POST /api/simulate`).
+- For hosted usage, deploy the backend separately (for example: Render/Railway) and set:
+
+   `VITE_API_BASE_URL=https://your-backend-domain`
+
+- Then rebuild and redeploy the frontend.
