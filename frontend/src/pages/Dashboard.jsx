@@ -67,9 +67,9 @@ function CanvasInner() {
   }, [busResults]);
 
   return (
-    <div className="relative h-full rounded-2xl border border-slate-800 bg-slate-950">
+    <div className="relative min-h-[60vh] rounded-2xl border border-slate-800 bg-slate-950 xl:h-full xl:min-h-0">
       {nodes.length === 0 ? (
-        <div className="absolute z-10 m-4 rounded-2xl border border-dashed border-slate-700 bg-slate-950/90 px-4 py-3 text-sm text-slate-400">
+        <div className="absolute z-10 m-3 rounded-2xl border border-dashed border-slate-700 bg-slate-950/90 px-3 py-2 text-xs text-slate-400 sm:m-4 sm:px-4 sm:py-3 sm:text-sm">
           No buses on the canvas yet. Drag a Bus from the toolbox or start with a sample system.
         </div>
       ) : null}
@@ -230,7 +230,7 @@ export default function Dashboard() {
           : 'min-h-full bg-slate-100 text-slate-900'
       }
     >
-      <div className="mx-auto flex h-full max-w-[1800px] flex-col gap-4 p-4 lg:p-6">
+      <div className="mx-auto flex h-full max-w-[1800px] flex-col gap-4 p-3 sm:p-4 lg:p-6">
         <TopBar
           method={method}
           onMethodChange={setMethod}

@@ -7,9 +7,9 @@ const items = [
 
 export default function Toolbox({ onDragStart, selectedTool, onSelectTool }) {
   return (
-    <div className="panel h-full">
+    <div className="panel h-auto xl:h-full">
       <div className="panel-header">Toolbox</div>
-      <div className="space-y-3 p-4">
+      <div className="space-y-3 p-3 sm:p-4">
         <p className="text-xs leading-5 text-slate-400">
           Drag buses, generators, and loads onto the canvas. Connect bus handles to create transmission lines.
         </p>

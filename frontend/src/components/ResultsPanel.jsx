@@ -82,7 +82,7 @@ function ResultTable({ title, columns, rows }) {
     <div className="panel overflow-hidden">
       <div className="panel-header">{title}</div>
       <div className="overflow-auto">
-        <table className="min-w-full text-left text-sm">
+        <table className="min-w-[640px] text-left text-sm sm:min-w-full">
           <thead className="bg-slate-950/70 text-xs uppercase tracking-wide text-slate-400">
             <tr>{columns.map((column) => <th key={column} className="px-4 py-3">{column}</th>)}</tr>
           </thead>
@@ -117,7 +117,7 @@ export default function ResultsPanel({ results, iterations, method }) {
             {results?.converged ? 'Converged' : 'In progress / not converged'}
           </span>
         </div>
-        <div className="grid gap-3 p-4 md:grid-cols-2 xl:grid-cols-4">
+        <div className="grid gap-3 p-3 sm:p-4 md:grid-cols-2 xl:grid-cols-4">
           {busRows.map((bus) => (
             <div key={bus.busNo ?? bus.busId} className="rounded-2xl border border-slate-700 bg-slate-950 p-4">
               <div className="flex items-center justify-between">

@@ -79,9 +79,9 @@ export default function PropertiesPanel() {
   const busOptions = useMemo(() => nodes.map((node) => ({ value: node.id, label: node.data.label })), [nodes]);
 
   return (
-    <div className="panel h-full">
+    <div className="panel h-auto xl:h-full">
       <div className="panel-header">Properties</div>
-      <div className="space-y-4 p-4 text-sm">
+      <div className="space-y-4 p-3 text-sm sm:p-4">
         {!selected ? <p className="text-slate-400">Select a bus, generator, load, or transmission line to edit its parameters.</p> : null}
 
         {selectedNode ? (
